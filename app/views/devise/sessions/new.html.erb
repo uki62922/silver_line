@@ -1,0 +1,32 @@
+<div class="new-top">
+  <h2 class="title">
+  ログイン
+  </h2>
+</div>
+<div class="form">
+<%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :メールアドレス%>
+          </div>
+          <div class='field-input'>
+            <%= f.email_field :email, autofocus: true%>
+          </div>
+          <div class='field'>
+            <div class='field-label'>
+              <%= f.label :パスワード%>
+              <i>(英数字6文字以上)</i>
+            </div>
+            <div class='field-input'>
+              <%= f.password_field :password, autocomplete: "off"%>
+            </div>
+          </div>
+          <div class='actions'>
+            <%= f.submit "ログイン", class: 'btn'%>
+          </div>
+        </div>
+　　　　　 <div class="new-link">
+          <button><%= link_to "新規登録はこちら", root_path, class: 'link'%></button>
+        </div>
+      <% end %> 

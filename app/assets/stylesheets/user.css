@@ -1,0 +1,50 @@
+.new-top{
+  height:100px;
+  background-color:#253141;
+  color:#ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form{
+  height:calc(100vh - 100px);
+  overflow: scroll;
+  font-size: 30px;
+  margin:10px 0 40px 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.field{
+  margin:40px;
+  padding:5px;
+}
+
+.btn{
+  width:46vw;
+  font-size:34px;
+  color:#000000;
+  text-align:center;
+  margin:5px;
+  background:#f8f8ff;
+  padding:5px;
+  border-radius: 20px;
+}
+
+.new-link{
+  padding:20px;
+  font-size:26px;
+}
+
+.new-link button{
+  width:46vw;
+  font-size:34px;
+  color:#FFFFFF;
+  text-align:center;
+  margin:5px;
+  background:#f8f8ff;
+  padding:5px;
+  border-radius: 20px;
+}
