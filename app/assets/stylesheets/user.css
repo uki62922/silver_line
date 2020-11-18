@@ -16,16 +16,30 @@
   justify-content: center;
   text-align: center;
 }
+.fields{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  margin-bottom: 80px;
+}
+
+.field-left{
+  margin-top:60px;
+}
 
 .field{
   margin:40px;
   padding:5px;
 }
 
+.field-label{
+  color:dimgray;
+}
+
 .btn{
   width:46vw;
   font-size:34px;
-  color:#000000;
+  color:dimgray;
   text-align:center;
   margin:5px;
   background:#f8f8ff;
@@ -47,4 +61,9 @@
   background:#f8f8ff;
   padding:5px;
   border-radius: 20px;
+}
+
+.image-upload{
+  display:none;
+  font-size:5px;
 }

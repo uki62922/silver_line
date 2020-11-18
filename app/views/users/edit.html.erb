@@ -4,23 +4,40 @@
   </h2>
 </div>
 <div class="form">
-      <%= form_with model: current_user, local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :名前%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :メールアドレス%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email%>
+    <%= form_with model: current_user, local: true do |f|%>
+      <div class="fields">
+        <div class="field-left">
+          <div class="field icon">
+            <label>
+             <% if @user.image.attached? %>
+              <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+              <%= f.file_field :image,class: 'image-upload'%>
+             <% else %>
+              <%= image_tag("default-icon.png", class: :icon_img) %>
+              <%= f.file_field :image,class: 'image-upload'%>
+             <% end %>
+            </label>
           </div>
         </div>
+        <div class="field-right">
+          <div class='field'>
+            <div class='field-label'>
+              <%= f.label :名前%>
+            </div>
+            <div class='field-input'>
+              <%= f.text_field :name, autofocus: true%>
+            </div>
+          </div>
+          <div class='field'>
+            <div class='field-label'>
+              <%= f.label :メールアドレス%>
+            </div>
+            <div class='field-input'>
+              <%= f.email_field :email%>
+            </div>
+          </div>   
+        </div>
+      </div>  
         <div class='actions'>
           <%= f.submit "完了", class: 'btn'%>
         </div>
@@ -30,5 +47,5 @@
           <br>
           <br><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'link'%>
         </div>
-      <% end %>
+    <% end %>
 </div>
