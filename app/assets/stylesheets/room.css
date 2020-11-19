@@ -1,0 +1,49 @@
+.under-room{
+  background-color:#f8f8ff;
+  height:150px;
+  border-top:1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:34px;
+}
+
+.form-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+}
+
+.form-message {
+  background-color: white;
+  border: none;
+  height: 80px;
+  width: 100%;
+  padding-left: 10px
+}
+
+.form-submit {
+  background-color: #38AEF0;
+  border: none;
+  color: white;
+  height: 80px;
+  width:100px;
+  margin-left: 15px;
+  padding: 0 20px;
+}
+
+.form-image {
+  background-color: lightblue;
+  color: white;
+  font-size:20px;
+  padding: 12px;
+  height: 80px;
+  width: 120px;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
