@@ -1,0 +1,59 @@
+<div class="top-button">
+  <div class="top">
+    <div class="setting">
+      <%= link_to image_tag("setting.png", class: :logo), edit_user_path(current_user) %>
+    </div>
+    <div class="title">
+      <strong>ここは電話帳</strong>
+    </div>
+    <div class="add-friend">
+      <a href="#"><button>電話帳を追加</button></a>
+    </div>
+  </div>
+</div>
+  
+<div class="profile">
+  <div class="icon">
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+    <% else %>
+      <%= image_tag("default-icon.png", class: :icon_img) %>
+    <% end %>
+  </div>  
+  <div class="my-name">
+    <%= current_user.name %>
+  </div>
+</div>
+
+<div class="friends">
+  <div class="friends-count">友達 24人
+  </div>
+
+  <div class="profile">
+  <div class="icon">
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+    <% else %>
+      <%= image_tag("default-icon.png", class: :icon_img) %>
+    <% end %>
+  </div>  
+  <div class="my-name">
+    <%= current_user.name %>
+  </div>
+</div>
+<div class="profile">
+  <div class="icon">
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+    <% else %>
+      <%= image_tag("default-icon.png", class: :icon_img) %>
+    <% end %>
+  </div>  
+  <div class="my-name">
+    <%= current_user.name %>
+  </div>
+</div>
+</div>
+<div class="under-button">
+    <%= render "messages/under_button" %>
+</div>
