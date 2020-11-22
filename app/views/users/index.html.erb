@@ -3,10 +3,10 @@
 </div>
 <div class="search">
   <%= search_form_for @p, url: search_users_path, class:"search-form" do |f| %>
-  <%= f.label :name_eq, '電話番号で探す', class:"search-tel"%>
+  <%= f.label :tel_eq, '電話番号で探す', class:"search-tel"%>
   <i>(ーは入れない)</i>
   <br>
-  <%= f.search_field :name_eq, class:"search-field" %>
+  <%= f.search_field :tel_eq, class:"search-field" %>
   <%= f.submit '検索',class:"submit"%>
   <% end %>
 </div>

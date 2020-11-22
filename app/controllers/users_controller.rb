@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(current_user.id)
     if current_user.update(user_params)
       redirect_to root_path
     else
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
 
   def search
     @p = User.ransack(params[:q])
-     if params[:q][:name_eq] != ""
+     if params[:q][:tel_eq] != ""
     @results = @p.result
      else
        return false
@@ -31,6 +32,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :image)
+    params.require(:user).permit(:name, :email, :image, :tel)
   end
 end

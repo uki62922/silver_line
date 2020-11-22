@@ -5,9 +5,20 @@
 <div class="search">
   <% if @results.present? %>
   <% @results.each do |result| %>
+  <div class="field icon">
+    <% if result.image.attached? %>
+    <%= image_tag result.image.variant(resize: '500x500'), class: 'icon_img'%>
+    
+    <% else %>
+    <%= image_tag("default-icon.png", class: :icon_img) %>
+    
+    <% end %>
+  </div>
   <%= link_to "#{result.name}","/users/#{result.id}"%>
   <%end%>
   <% else %>
+    入力した電話番号は存在しないか、検索できません。
+    <button><%= link_to "戻る", user_path, class: 'link'%></button>
   <% end %>
 </div>
 <div class="under-button">

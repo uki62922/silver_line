@@ -4,7 +4,7 @@
   </h2>
 </div>
 <div class="form">
-    <%= form_with model: current_user, local: true do |f|%>
+    <%= form_with model: @user, local: true do |f|%>
       <div class="fields">
         <div class="field-left">
           <div class="field icon">
@@ -35,7 +35,10 @@
             <div class='field-input'>
               <%= f.email_field :email%>
             </div>
-          </div>   
+          </div>
+          <div class='field-input'hidden>
+            <%= f.text_field :tel%>
+          </div>
         </div>
       </div>  
         <div class='actions'>

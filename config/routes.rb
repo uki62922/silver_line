@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  # get 'messages/index'
+   get 'messages/index'
   resources :users do
     collection do
       get 'search'
