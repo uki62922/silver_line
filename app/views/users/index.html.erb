@@ -1,0 +1,25 @@
+<div class="top-button">
+  <div class="top">
+    <div class="setting">
+      <%= link_to image_tag("setting.png", class: :logo), edit_user_path(current_user) %>
+    </div>
+    <div class="title">
+      <strong>ここは追加するところ</strong>
+    </div>
+    <div class="add-friend">
+      <%= link_to "<button>電話帳を追加</button>".html_safe,users_path %>
+    </div>
+  </div>
+</div>
+<div class="search">
+  <%= search_form_for @p, url: search_users_path, class:"search-form" do |f| %>
+  <%= f.label :name_eq, '電話番号で探す', class:"search-tel"%>
+  <i>(ーは入れない)</i>
+  <br>
+  <%= f.search_field :name_eq, class:"search-field" %>
+  <%= f.submit '検索',class:"submit"%>
+<% end %>
+</div>
+<div class="under-button">
+    <%= render "messages/under_button" %>
+</div>

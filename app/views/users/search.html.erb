@@ -1,0 +1,26 @@
+<div class="top-button">
+  <div class="top">
+    <div class="setting">
+      <%= link_to "◁", edit_user_path(current_user) %>
+    </div>
+    <div class="title">
+      <strong>ここは追加するところ</strong>
+    </div>
+    <div class="add-friend">
+      <%= link_to "<button>電話帳を追加</button>".html_safe,users_path %>
+    </div>
+  </div>
+</div>
+
+<div class="search">
+
+<% if @results.present? %>
+<% @results.each do |result| %>
+<%= result.name %>
+<%end%>
+<% else %>
+<% end %>
+</div>
+<div class="under-button">
+    <%= render "messages/under_button" %>
+</div>

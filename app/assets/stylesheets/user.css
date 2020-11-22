@@ -91,3 +91,25 @@
   font-size:38px;
   padding:5px 10px;
 }
+
+.search{
+  height:calc(100vh - 250px);
+  padding:10px 30px 0;
+  overflow: scroll;
+  display:flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top:50px;
+  font-size:38px;
+}
+
+.submit{
+  width:120px;
+  font-size:34px;
+  color:dimgray;
+  text-align:center;
+  margin:5px;
+  background:#f8f8ff;
+  padding:5px;
+  border-radius: 20px;
+}
