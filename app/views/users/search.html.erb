@@ -1,26 +1,15 @@
 <div class="top-button">
-  <div class="top">
-    <div class="setting">
-      <%= link_to "◁", edit_user_path(current_user) %>
-    </div>
-    <div class="title">
-      <strong>ここは追加するところ</strong>
-    </div>
-    <div class="add-friend">
-      <%= link_to "<button>電話帳を追加</button>".html_safe,users_path %>
-    </div>
-  </div>
+  <%= render partial:"layouts/top_button" ,locals: { title: "ここは追加する所"  }%>
 </div>
 
 <div class="search">
-
-<% if @results.present? %>
-<% @results.each do |result| %>
-<%= result.name %>
-<%end%>
-<% else %>
-<% end %>
+  <% if @results.present? %>
+  <% @results.each do |result| %>
+  <%= link_to "#{result.name}","/users/#{result.id}"%>
+  <%end%>
+  <% else %>
+  <% end %>
 </div>
 <div class="under-button">
-    <%= render "messages/under_button" %>
+  <%= render "layouts/under_button" %>
 </div>

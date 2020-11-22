@@ -1,11 +1,11 @@
 <div class="wrapper">
-<div class="top-button">
-    <%= render "top_button" %>
+  <div class="top-button">
+    <%= render partial:"layouts/top_button" ,locals: { title: "ここは話す所"  }%>
   </div>
   <div class="main-messages">
     <%= render "main_messages" %>
   </div>
   <div class="under-button">
-    <%= render "under_button" %>
+    <%= render "layouts/under_button" %>
   </div>
 </div>

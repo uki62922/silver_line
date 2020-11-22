@@ -1,17 +1,9 @@
-<div class="top-button">
-  <div class="top">
-    <div class="setting">
-      <%= link_to image_tag("setting.png", class: :logo), edit_user_path(current_user) %>
-    </div>
-    <div class="title">
-      <strong>ここは電話帳</strong>
-    </div>
-    <div class="add-friend">
-      <%= link_to "<button>電話帳を追加</button>".html_safe,users_path %>
-    </div>
+<div class="wrapper">
+  <div class="top-button">
+    <%= render partial:"layouts/top_button" ,locals: { title: "ここは電話帳"  }%>
   </div>
-</div>
-  
+
+<% if user_signed_in? && current_user.id.to_s == params[:id] %>
 <div class="profile">
   <div class="icon">
     <% if @user.image.attached? %>
@@ -24,36 +16,39 @@
     <%= current_user.name %>
   </div>
 </div>
-
 <div class="friends">
   <div class="friends-count">友達 24人
   </div>
-
   <div class="profile">
-  <div class="icon">
-    <% if @user.image.attached? %>
+    <div class="icon">
+      <% if @user.image.attached? %>
       <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
-    <% else %>
+      <% else %>
       <%= image_tag("default-icon.png", class: :icon_img) %>
-    <% end %>
-  </div>  
-  <div class="my-name">
-    <%= current_user.name %>
+      <% end %>
+    </div>  
+    <div class="my-name">
+      <%= current_user.name %>
+    </div>
+  </div>
+  <div class="profile">
+    <div class="icon">
+      <% if @user.image.attached? %>
+      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+      <% else %>
+      <%= image_tag("default-icon.png", class: :icon_img) %>
+      <% end %>
+    </div>  
+    <div class="my-name">
+      <%= current_user.name %>
+    </div>
   </div>
 </div>
-<div class="profile">
-  <div class="icon">
-    <% if @user.image.attached? %>
-      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
-    <% else %>
-      <%= image_tag("default-icon.png", class: :icon_img) %>
-    <% end %>
-  </div>  
-  <div class="my-name">
-    <%= current_user.name %>
-  </div>
+<% else %>
+<div class="search">
 </div>
-</div>
+<% end %>
+
 <div class="under-button">
-    <%= render "messages/under_button" %>
+    <%= render "layouts/under_button" %>
 </div>
