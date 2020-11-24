@@ -1,25 +1,26 @@
 <div class="top-button">
   <%= render partial:"layouts/top_button" ,locals: { title: "ここは追加する所"  }%>
 </div>
-
+<div class="search-field">
 <div class="search">
   <% if @results.present? %>
   <% @results.each do |result| %>
-  <div class="field icon">
+  <div class="icon">
     <% if result.image.attached? %>
     <%= image_tag result.image.variant(resize: '500x500'), class: 'icon_img'%>
     
     <% else %>
     <%= image_tag("default-icon.png", class: :icon_img) %>
-    
     <% end %>
   </div>
-  <%= link_to "#{result.name}","/users/#{result.id}"%>
-  <%end%>
+  <div class="user-name">
+    <%= link_to "#{result.name} さん<br>ここを押す".html_safe,"/users/#{result.id}"%>
+  </div>
+  <% end %>
   <% else %>
     入力した電話番号は存在しないか、検索できません。
-    <button><%= link_to "戻る", user_path, class: 'link'%></button>
   <% end %>
+</div>
 </div>
 <div class="under-button">
   <%= render "layouts/under_button" %>

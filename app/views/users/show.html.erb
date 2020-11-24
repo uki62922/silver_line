@@ -1,54 +1,52 @@
-<div class="wrapper">
+
   <div class="top-button">
     <%= render partial:"layouts/top_button" ,locals: { title: "ここは電話帳"  }%>
   </div>
-
 <% if user_signed_in? && current_user.id.to_s == params[:id] %>
-<div class="profile">
-  <div class="icon">
-    <% if @user.image.attached? %>
-      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
-    <% else %>
-      <%= image_tag("default-icon.png", class: :icon_img) %>
-    <% end %>
-  </div>  
-  <div class="my-name">
-    <%= current_user.name %>
-  </div>
-</div>
-<div class="friends">
-  <div class="friends-count">友達 24人
-  </div>
   <div class="profile">
     <div class="icon">
       <% if @user.image.attached? %>
-      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+        <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
       <% else %>
-      <%= image_tag("default-icon.png", class: :icon_img) %>
+        <%= image_tag("default-icon.png", class: :icon_img) %>
       <% end %>
-    </div>  
-    <div class="my-name">
+    </div>
+    <div class="user-name">
       <%= current_user.name %>
     </div>
   </div>
-  <div class="profile">
-    <div class="icon">
-      <% if @user.image.attached? %>
-      <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
-      <% else %>
-      <%= image_tag("default-icon.png", class: :icon_img) %>
-      <% end %>
-    </div>  
-    <div class="my-name">
-      <%= current_user.name %>
-    </div>
-  </div>
-</div>
-<% else %>
-<div class="search">
-</div>
-<% end %>
 
-<div class="under-button">
-    <%= render "layouts/under_button" %>
+<div class="friends">
+  <div class="friends-count">
+    <%="友だち #{@followings.length}人"%>
+  </div>
+    <% @followings.each do |following|%>
+    <div class="friend-list">
+      <div class="icon">
+        <% if following.image.attached? %>
+          <%= image_tag following.image.variant(resize: '500x500'), class: 'icon_img'%>
+        <% else %>
+          <%= image_tag("default-icon.png", class: :icon_img) %>
+        <% end %>
+      </div>  
+      <div class="user-name">
+        <%= following.name %>
+      </div>
+    </div>
+    <% end %>
+<% else %>
+  <div class="follow">
+    <%if user_signed_in? && current_user != @user %>
+      <%if current_user.active_relationships.exists?(target_user_id:@user.id)%>
+        <%= link_to '電話帳から削除する',[@user, :follow], method: :delete %>
+      <% else %>
+        <%= link_to '電話帳に追加する',[@user, :follow], method: :post %>
+      <% end %>
+    <% end %>  
+  </div>
+  </div>
+<% end %>
 </div>
+  <div class="under-button">
+    <%= render "layouts/under_button" %>
+  </div>
