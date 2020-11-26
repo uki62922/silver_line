@@ -35,8 +35,8 @@
 
 .form-image {
   background-color: lightblue;
-  color: white;
-  font-size:20px;
+  color: rgb(175, 108, 108);
+  font-size:34px;
   padding: 12px;
   height: 80px;
   width: 120px;
@@ -46,4 +46,34 @@
 
 .hidden {
   display: none;
+}
+
+.create-room-top{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding:40px;
+}
+.create-room-under{
+  text-align: center;
+}
+
+.submit-btn{
+  margin:20px;
+  font-size:38px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color:dimgray;
+}
+
+.message-form{
+  justify-content: center;
+}
+
+.room-return{
+  text-align: center;
+  color:dimgray;
+  font-size: 34px;
+  padding:40px;
 }

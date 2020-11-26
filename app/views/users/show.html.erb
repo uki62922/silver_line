@@ -36,16 +36,18 @@
     </div>
     <% end %>
 <% else %>
+<div class="follow-page">
   <div class="follow">
     <%if user_signed_in? && current_user != @user %>
       <%if current_user.active_relationships.exists?(target_user_id:@user.id)%>
-        <%= link_to '電話帳から削除する',[@user, :follow], method: :delete %>
+        <%= link_to 'ここを押すと<br>電話帳から削除する'.html_safe, [@user, :follow], method: :delete %>
       <% else %>
-        <%= link_to '電話帳に追加する',[@user, :follow], method: :post %>
+        <%= link_to 'ここを押すと<br>電話帳に追加する'.html_safe, [@user, :follow], method: :post %>
       <% end %>
     <% end %>  
   </div>
   </div>
+</div>  
 <% end %>
 </div>
   <div class="under-button">

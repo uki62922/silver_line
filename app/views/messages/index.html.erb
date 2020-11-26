@@ -2,9 +2,13 @@
   <div class="top-button">
     <%= render "top_button" %>
   </div>
-  <div class="main-room">
-    <%= render "main_message" %>
-  </div>
+
+  <div class="messages">
+    <div class="text">
+      <%= render partial: 'message', collection: @messages %>
+    </div>
+  </div>  
+  
   <div class="under-room">
     <%= render "under_form" %>
   </div>
