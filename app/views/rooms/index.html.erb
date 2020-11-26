@@ -1,11 +1,17 @@
-<div class="wrapper">
-  <div class="top-button">
-    <%= render "top_button" %>
-  </div>
-  <div class="main-room">
-    <%= render "main_room" %>
-  </div>
-  <div class="under-room">
-    <%= render "under_form" %>
-  </div>
+<div class="top-button">
+  <%= render partial:"layouts/top_button" ,locals: { title: "ここは話をするところ"  }%>
+</div>
+
+<div class="messages">
+  <% current_user.rooms.each do |room| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to "aaa", room_messages_path(room) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="under-button">
+  <%= render "layouts/under_button" %>
 </div>

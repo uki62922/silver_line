@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :room_users
   has_many :rooms, through: :room_users
+  has_many :messages
 
   has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
   has_many :passive_relationships, class_name: 'Follow', foreign_key: 'target_user_id'
