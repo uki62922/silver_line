@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :rooms, only: [:new, :create]
-  root to: "messages#index"
+  resources :rooms, only: [:index, :new, :create]
+  root to: "users#index"
 end

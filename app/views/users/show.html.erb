@@ -30,7 +30,7 @@
         <% end %>
       </div>  
       <div class="user-name">
-        <%= following.name %>
+        <%= link_to "#{following.name}", new_room_path(user:following) %>
       </div>
     </div>
     <% end %>

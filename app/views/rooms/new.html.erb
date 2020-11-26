@@ -1,11 +1,24 @@
-<div class="wrapper">
   <div class="top-button">
-    <%= render "top_button" %>
+    <%= render partial:"layouts/top_button" ,locals: { title: "ここは電話帳"  }%>
   </div>
-  <div class="main-room">
-    <%= render "main_room" %>
+
+  <div class="icon">
+    <% if @user.image.attached? %>
+    <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+    <% else %>
+    <%= image_tag("default-icon.png", class: :icon_img) %>
+    <% end %>
   </div>
-  <div class="under-room">
-    <%= render "under_form" %>
+  <div class="user-name">
+    <%= @user.name%>
   </div>
+
+
+ <%=form_with model: @room, local: true do |f|%>
+<input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+<input name="room[user_ids][]" type="hidden" value=<%= @user.id %>>
+
+<div class='chat-room-form__field--right'>
+  <%= f.submit "あああ",class: 'chat-room-form__action-btn'%>
 </div>
+<% end %>
