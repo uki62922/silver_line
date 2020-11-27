@@ -44,7 +44,10 @@
       <% else %>
         <%= link_to 'ここを押すと<br>電話帳に追加する'.html_safe, [@user, :follow], method: :post %>
       <% end %>
-    <% end %>  
+    <% end %>
+  </div>
+  <div class="room-return">
+    <%=link_to "◀ 戻る", root_path%>
   </div>
   </div>
 </div>  

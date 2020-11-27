@@ -31,17 +31,19 @@
   width:100px;
   margin-left: 15px;
   padding: 0 20px;
+  
 }
 
 .form-image {
   background-color: lightblue;
   color: rgb(175, 108, 108);
-  font-size:34px;
-  padding: 12px;
+  padding: 0 10px;
   height: 80px;
   width: 120px;
   margin: 5px 10px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hidden {

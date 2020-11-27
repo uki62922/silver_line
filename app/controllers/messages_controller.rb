@@ -3,6 +3,10 @@ class MessagesController < ApplicationController
     @message = Message.new
     @room = Room.find(params[:room_id])
     @messages = @room.messages.includes(:user)
+
+    user = @room.room_users.pluck(:user_id)
+    user.delete(current_user.id)
+    @user = User.find(user[0])
   end
 
   def create
@@ -13,7 +17,7 @@ class MessagesController < ApplicationController
     else
       @messages = @room.messages.includes(:user)
       render :index
-    end
+    end  
   end
 
   def destroy
@@ -21,7 +25,7 @@ class MessagesController < ApplicationController
     room.destroy
     redirect_to root_path
   end
-    
+  
   private
 
   def message_params

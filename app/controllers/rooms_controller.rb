@@ -7,6 +7,10 @@ class RoomsController < ApplicationController
   def new
     @room = Room.new
     @user =User.find(params[:user])
+
+    current_rooms = RoomUser.where(user_id:current_user.id)
+    current_room_id = current_rooms.pluck(:room_id)
+    @room_user = RoomUser.where(room_id:current_room_id)
   end
 
   def create

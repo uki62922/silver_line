@@ -11,12 +11,14 @@
     <% end %>
   </div>
 </div>
+<% unless @room_user.exists?(user_id:@user.id)%>
 <div class="create-room-under">  
   <%=form_with model: @room, local: true do |f|%>
     <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
     <input name="room[user_ids][]" type="hidden" value=<%= @user.id %>>
     <div>
-      <button><%= f.submit "#{@user.name}さんと話すボタン",class: 'submit-btn'%></button>
+      <button><%= f.submit "#{@user.name}さんと話すボタン",class: 'submit-btn'%></button>      
+<% end %>
     </div>
   <% end %>
 </div>
