@@ -6,7 +6,7 @@
   <% current_user.rooms.each do |room| %>
     <div class="room">
       <div class="room-name">
-        <%= link_to "aaa", room_messages_path(room) %>
+        <%= link_to "#{room.id}", room_messages_path(room) %>
       </div>
     </div>
   <% end %>
