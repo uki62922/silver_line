@@ -11,16 +11,19 @@
     <% end %>
   </div>
 </div>
-<% unless @room_user.exists?(user_id:@user.id)%>
-<div class="create-room-under">  
+
+<div class="create-room-under">
+<% if @room_user.exists?(user_id:@user.id)%>
+  <button><%= link_to "#{@user.name}さんと話すボタン", "/rooms/#{@other_user_room}/messages",class: 'submit-btn' %></button>
+<% else %>
   <%=form_with model: @room, local: true do |f|%>
     <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
     <input name="room[user_ids][]" type="hidden" value=<%= @user.id %>>
     <div>
       <button><%= f.submit "#{@user.name}さんと話すボタン",class: 'submit-btn'%></button>      
-<% end %>
-    </div>
   <% end %>
+    </div>
+<% end %>
 </div>
 
 <div class="room-return">

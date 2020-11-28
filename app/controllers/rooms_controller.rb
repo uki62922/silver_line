@@ -11,6 +11,9 @@ class RoomsController < ApplicationController
     current_rooms = RoomUser.where(user_id:current_user.id)
     current_room_id = current_rooms.pluck(:room_id)
     @room_user = RoomUser.where(room_id:current_room_id)
+    @room_id = @room_user.where(user_id:@user.id)
+    
+    @other_user_room = @room_id.pluck(:room_id)[0]
   end
 
   def create
