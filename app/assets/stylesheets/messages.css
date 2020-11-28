@@ -37,8 +37,8 @@
 .icon {
   position:relative;
   overflow: hidden;
-  width:165px;
-  height:165px;
+  width:150px;
+  height:150px;
   border-radius:50%;
 }
 .icon_img{
@@ -54,20 +54,13 @@
 .message{
   display: flex;
   padding:40px 0;
+  display: flex;
+  align-items: center;
 }
 
-.chat{
-  padding:10px 30px;
-}
-
-.name{
-  font-size:44px;
-}
-
-.text{
-  font-size:38px;
-  padding:10px 0;
-  color:dimgray;
+.message-content{
+  font-size: 34px;
+  padding-left:20px;
 }
 
 .under-button{

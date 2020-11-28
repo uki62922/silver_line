@@ -1,5 +1,4 @@
 <div class="message">
-  <div class="upper-message">
     <div class="icon">
       <% if message.user.image.attached? %>
         <%= image_tag message.user.image.variant(resize: '500x500'), class: 'icon_img'%>
@@ -11,13 +10,9 @@
     <%# <div class="message-date">
       <!-- 投稿した時刻を出力する -->
       <%= l message.created_at %>
-    </div>
-  </div>
+    <%# </div> %>
   
-  <div class="lower-message">
     <div class="message-content">
-      <!-- 投稿したメッセージ内容を記述する -->
       <%= message.content %>
     </div>
-  </div>
 </div>

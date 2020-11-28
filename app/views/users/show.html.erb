@@ -1,5 +1,5 @@
 <div class="top-button">
-  <%= render partial:"layouts/top_button" ,locals: { title: "ここは電話帳"  }%>
+  <%= render partial:"layouts/top_button" ,locals: { title: "ここは電話帳" }%>
 </div>
 
 <% if user_signed_in? && current_user.id.to_s == params[:id] %>
