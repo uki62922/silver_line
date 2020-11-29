@@ -1,11 +1,10 @@
 <div class="new-top">
-  <h2 class="title">
+  <h2 class="titles">
   ログイン
   </h2>
 </div>
 <div class="form">
 <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
-
         <div class='field'>
           <div class='field-label'>
             <%= f.label :メールアドレス%>
@@ -26,7 +25,7 @@
             <%= f.submit "ログイン", class: 'btn'%>
           </div>
         </div>
-　　　　　 <div class="new-link">
+        <div class="new-link">
           <button><%= link_to "新規登録はこちら", new_user_registration_path, class: 'link'%></button>
         </div>
       <% end %> 

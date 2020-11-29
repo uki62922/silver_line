@@ -1,11 +1,15 @@
 <div class="wrapper">
-<div class="top-button">
+  <div class="top-button">
     <%= render "top_button" %>
   </div>
-  <div class="main-messages">
-    <%= render "main_messages" %>
+
+  <div class="messages">
+      <%= render partial: 'message', collection: @messages %>
+      <div id = 'u'>
+      </div>
   </div>
-  <div class="under-button">
-    <%= render "under_button" %>
+  
+  <div class="under-room">
+    <%= render "under_form" %>
   </div>
-</div>  
+</div>

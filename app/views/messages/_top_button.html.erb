@@ -1,11 +1,11 @@
 <div class="top">
-  <div class="setting">
-  <%= link_to image_tag("setting.png", class: :logo), edit_user_path(current_user) %>
+  <div class="return">
+  <%=link_to "◀ 戻る", root_path%>
   </div>
-  <div class="title">
-  <strong>ここは話をするところ</strong>
+  <div class="titles">
+    <%= @user.name %>
   </div>
-  <div class="add-friend">
-  <a href="#"><button>電話帳を追加</button></a>
+  <div class="tel">
+  <button>電話をかける</button>
   </div>
 </div>

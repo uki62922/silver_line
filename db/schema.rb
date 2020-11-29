@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_114540) do
+ActiveRecord::Schema.define(version: 2020_11_26_084950) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,8 +33,42 @@ ActiveRecord::Schema.define(version: 2020_11_18_114540) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "target_user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["target_user_id"], name: "index_follows_on_target_user_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "tel", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -47,4 +81,9 @@ ActiveRecord::Schema.define(version: 2020_11_18_114540) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "follows", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "room_users", "rooms"
+  add_foreign_key "room_users", "users"
 end

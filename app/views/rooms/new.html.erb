@@ -1,0 +1,31 @@
+<div class="top-button">
+  <%= render partial:"layouts/top_button" ,locals: { title: "ここは電話帳"  }%>
+</div>
+
+<div class="create-room-top">
+  <div class="icon">
+    <% if @user.image.attached? %>
+    <%= image_tag @user.image.variant(resize: '500x500'), class: 'icon_img'%>
+    <% else %>
+    <%= image_tag("default-icon.png", class: :icon_img) %>
+    <% end %>
+  </div>
+</div>
+
+<div class="create-room-under">
+<% if @room_user.exists?(user_id:@user.id)%>
+  <button><%= link_to "#{@user.name}さんと話すボタン", "/rooms/#{@other_user_room}/messages#u",class: 'submit-btn' %></button>
+<% else %>
+  <%=form_with model: @room, local: true do |f|%>
+    <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+    <input name="room[user_ids][]" type="hidden" value=<%= @user.id %>>
+    <div>
+      <button><%= f.submit "#{@user.name}さんと話すボタン",class: 'submit-btn'%></button>      
+  <% end %>
+    </div>
+<% end %>
+</div>
+
+<div class="room-return">
+  <%=link_to "◀ 戻る", root_path%>
+</div>

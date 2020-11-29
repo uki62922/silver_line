@@ -1,5 +1,5 @@
 <div class="new-top">
-  <h2 class="title">
+  <h2 class="titles">
   新規登録
   </h2>
 </div>
@@ -23,6 +23,14 @@
           </div>
           <div class='field-input'>
             <%= f.file_field :image %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :電話番号%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :tel%>
           </div>
         </div>
         <div class='field'>

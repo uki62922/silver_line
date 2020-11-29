@@ -1,0 +1,15 @@
+<div class="top-button">
+  <%= render partial:"layouts/top_button" ,locals: { title: "ここは追加する所"  }%>
+</div>
+<div class="search">
+  <%= search_form_for @p, url: search_users_path, class:"search-form" do |f| %>
+  <%= f.label :tel_eq, '電話番号で探す', class:"search-tel"%>
+  <i>(ーは入れない)</i>
+  <br>
+  <%= f.search_field :tel_eq, class:"search-field" %>
+  <%= f.submit '検索',class:"submit"%>
+  <% end %>
+</div>
+<div class="under-button">
+  <%= render "layouts/under_button" %>
+</div>
