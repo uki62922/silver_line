@@ -14,7 +14,7 @@
 
 <div class="create-room-under">
 <% if @room_user.exists?(user_id:@user.id)%>
-  <button><%= link_to "#{@user.name}さんと話すボタン", "/rooms/#{@other_user_room}/messages",class: 'submit-btn' %></button>
+  <button><%= link_to "#{@user.name}さんと話すボタン", "/rooms/#{@other_user_room}/messages#u",class: 'submit-btn' %></button>
 <% else %>
   <%=form_with model: @room, local: true do |f|%>
     <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>

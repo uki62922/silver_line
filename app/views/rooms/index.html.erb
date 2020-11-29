@@ -2,14 +2,35 @@
   <%= render partial:"layouts/top_button" ,locals: { title: "ここは話をするところ"  }%>
 </div>
 
-<div class="messages">
-  <% current_user.rooms.each do |room| %>
-    <div class="room">
-      <div class="room-name">
-        <%= link_to "#{room.id}", room_messages_path(room) %>
+<div class="main-room">
+  <div class="rooms">
+    <% @other_user.reverse.zip(current_user.rooms.reverse) do |user,room| %>
+    <%= link_to room_messages_path(room, anchor:'u') do %>
+      <div class="room">
+        <div class="icon">
+          <% if user.image.attached? %>
+            <%= image_tag user.image.variant(resize: '500x500'), class: 'icon_img'%>
+          <% else %>
+            <%= image_tag("default-icon.png", class: :icon_img) %>
+          <% end %>
+        </div>
+      
+        <div class="room-right">
+          <div class="room-name">
+            <%= user.name %>
+          </div>
+          <div class="room-message">
+            <% if room.messages.present?%>
+             <%= room.messages.pluck(:content).pop.truncate(20)%>
+             <%else%>
+             <%="　"%>
+             <%end%>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
+      <% end %>
+      <% end %>
+  </div>
 </div>
 
 <div class="under-button">

@@ -1,4 +1,29 @@
+
+
 <div class="message">
+  <% if message.user_id == current_user.id %>
+  <div class="current">
+    <div class="message-date" id="current">
+      <%= message.created_at.strftime('%p%I時%M分') %>
+    </div>
+    
+
+    <div class="current-message-content" id="current">
+      <%= message.content %>
+      <div>
+      <%= image_tag message.image.variant(resize: '350x350'), class: 'message-image' if message.image.attached? %>
+      </div>
+    </div>
+    
+    <div class="icon" id="current">
+      <% if message.user.image.attached? %>
+        <%= image_tag message.user.image.variant(resize: '500x500'), class: 'icon_img'%>
+      <% else %>
+        <%= image_tag("default-icon.png", class: :icon_img) %>
+      <% end %>
+    </div>  
+  </div>
+  <% else %>
     <div class="icon">
       <% if message.user.image.attached? %>
         <%= image_tag message.user.image.variant(resize: '500x500'), class: 'icon_img'%>
@@ -7,12 +32,15 @@
       <% end %>
     </div>  
     
-    <%# <div class="message-date">
-      <!-- 投稿した時刻を出力する -->
-      <%= l message.created_at %>
-    <%# </div> %>
-  
     <div class="message-content">
       <%= message.content %>
+      <div>
+      <%= image_tag message.image.variant(resize: '350x350'), class: 'message-image' if message.image.attached? %>
+      </div>
     </div>
+    
+    <div class="message-date">
+      <%= message.created_at.strftime('%p%I時%M分') %>
+    </div>
+  <% end %>  
 </div>

@@ -1,7 +1,10 @@
 class RoomsController < ApplicationController
 
   def index
- 
+    @current_room_user_id = RoomUser.where(room_id:current_user.rooms)
+    @aaa = @current_room_user_id.pluck(:user_id)
+    @aaa.delete(current_user.id)
+    @other_user = User.find(@aaa)
   end
 
   def new
