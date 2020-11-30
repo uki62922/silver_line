@@ -3,7 +3,7 @@
 <div class="message">
   <% if message.user_id == current_user.id %>
   <div class="current">
-    <div class="message-date" id="current">
+    <div class="current-message-date" id="current">
       <%= message.created_at.strftime('%p%I時%M分') %>
     </div>
     
