@@ -20,11 +20,13 @@
             <%= user.name %>
           </div>
           <div class="room-message">
-            <% if room.messages.present?%>
-             <%= room.messages.pluck(:content).pop.truncate(20)%>
-             <%else%>
-             <%="　"%>
-             <%end%>
+            <% if room.messages.pluck(:content).pop == "" %>
+              <%="画像"%>
+            <% elsif room.messages.present?%>
+              <%= room.messages.pluck(:content).pop.truncate(20)%>
+            <% else %>
+              <%="　"%>
+            <%end%>
           </div>
         </div>
       </div>

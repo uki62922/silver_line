@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @current_room_user_id = RoomUser.where(room_id:current_user.rooms)

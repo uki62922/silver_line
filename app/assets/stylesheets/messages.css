@@ -42,6 +42,7 @@
   width:150px;
   height:150px;
   border-radius:50%;
+  background-color:#ffffff;
   
 }
 .icon_img{
@@ -124,6 +125,10 @@ border-left: 30px solid  #00ff00;
 border-bottom: 15px solid transparent;
 }
 
+.current-message-date{
+  margin:100px 5px 0 auto;
+
+}
 .current-message-content p {
 margin: 0;
 padding: 0;
