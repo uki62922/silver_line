@@ -60,3 +60,7 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'pry-rails'
 gem 'ransack'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
