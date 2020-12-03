@@ -44,9 +44,9 @@ https://gyazo.com/7f833ad1cdfbd24c819fc770a635ac1e
 #### 既読機能
 #### 音声通話、ビデオ通話機能
 # ローカルでの動作方法
-ruby 2.6.5
-Rails 6.0.3.4
-MySql 5.6.47
+- ruby 2.6.5
+- Rails 6.0.3.4
+- MySql 5.6.47
 
 # テーブル設計
 
