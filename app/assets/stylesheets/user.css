@@ -11,16 +11,20 @@
   height:calc(100vh - 100px);
   overflow: scroll;
   font-size: 30px;
-  margin:10px 0 40px 0;
   display: flex;
   justify-content: center;
   text-align: center;
+  padding: 20px 0;
 }
 
 .fields{
   display: flex;
   justify-content: center;
   text-align: left;
+  margin-bottom: 80px;
+}
+
+.actions{
   margin-bottom: 80px;
 }
 
